@@ -65,6 +65,51 @@
     @keyframes wiggle{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(3px)}}
     @media (prefers-reduced-motion: reduce){.title-animate{animation:none;text-shadow:none}}
 }
+    /* === HERO BOOST DYNAMIQUE (à coller en bas du <style>) === */
+
+/* 1) Overlay rouge + mouvement plus ample et plus rapide */
+.hero::before{
+  animation: flare 8s ease-in-out infinite alternate; /* avant 12s */
+  background:
+    radial-gradient(130% 65% at 10% 0%, rgba(166,10,10,.55), transparent 60%),
+    radial-gradient(130% 65% at 90% 40%, rgba(166,10,10,.40), transparent 60%);
+}
+@keyframes flare{
+  0%   { transform: translate(-3%, 2%) scale(1.02); }
+  100% { transform: translate(6%, -8%) scale(1.08); }
+}
+
+/* 2) Balayage lumineux discret (gloss diagonal) */
+.hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(100deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.10) 50%, rgba(255,255,255,0) 70%);
+  mix-blend-mode:screen;
+  transform: translateX(-120%) rotate(2deg);
+  animation: sweep 5.5s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes sweep{
+  0%   { transform: translateX(-120%) rotate(2deg); opacity:.18; }
+  50%  { opacity:.28; }
+  100% { transform: translateX(120%) rotate(2deg); opacity:.18; }
+}
+
+/* 3) Léger “float” du contenu texte (respire un peu) */
+.hero .section{
+  position: relative;
+  animation: floaty 4.8s ease-in-out infinite;
+}
+@keyframes floaty{
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-6px); }
+}
+
+/* Respecte l’accessibilité : coupe les anims si l’utilisateur n’en veut pas */
+@media (prefers-reduced-motion: reduce){
+  .hero::before, .hero::after, .hero .section { animation: none !important; }
+}
+
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
