@@ -129,7 +129,7 @@
   50%  { opacity:.45; }
   100% { transform: translateX(120%) rotate(2deg); opacity:.25; }
 }
-    /* 🌌 Arrière-plan image + halo rouge cinématique */
+/* 🌌 Arrière-plan image + halo doux + apparition en fondu */
 body::before {
   content: "";
   position: fixed;
@@ -137,12 +137,14 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("assets/fally-arriere-plan.JPG") center/cover no-repeat;
-  opacity: 0.18; /* 🔹 Ajuste entre 0.1 et 0.25 selon ton rendu */
+  background: url("assets/fally-arriere-plan.JPG") center/contain no-repeat; 
+  opacity: 0.18; /* ✅ opacité parfaite selon ton retour */
   z-index: -2;
+  transform: scale(1.02); /* léger zoom-out naturel */
+  animation: fadeInBg 2.5s ease-in-out forwards; /* effet fondu à l’apparition */
 }
 
-/* 🔥 Halo rouge subtil pour ambiance concert */
+/* 🌫️ Fumée blanche légère pour l'ambiance concert mais plus douce */
 body::after {
   content: "";
   position: fixed;
@@ -150,8 +152,21 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 50% 40%, rgba(255, 0, 0, 0.08), rgba(0, 0, 0, 0.85));
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.85));
   z-index: -1;
+  animation: fadeInBg 2.5s ease-in-out forwards;
+}
+
+/* ✨ Animation de fondu pour l’arrière-plan */
+@keyframes fadeInBg {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.02);
+  }
 }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
