@@ -39,6 +39,29 @@
     pre{overflow:auto;background:#0f0f0f;border:1px solid #222;border-radius:12px;padding:.8rem}
     .mono{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--gold)}
   </style>
+  <!-- Modern minimal font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style id="overrides-minimal">
+    /* === Overrides: modern minimal + accent red === */
+    :root{ --crimson:#A60A0A }
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+    a{color:var(--crimson)} a:hover{color:var(--night)}
+    h1,h2{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:.4px}
+    h1{font-weight:700} h2{font-weight:600}
+    .btn{border-color:var(--crimson);color:#fff}
+    .btn--gold{background:var(--crimson);border-color:var(--crimson);color:#fff}
+    /* Hero animated red gradient overlay */
+    .hero{position:relative;overflow:hidden;background: url('assets/fally-arriere-plan.jpg') center/cover fixed}
+    .hero::before{content:"";position:absolute;inset:0;background:
+      radial-gradient(120% 60% at 10% 0%, rgba(166,10,10,.45), transparent 60%),
+      radial-gradient(120% 60% at 90% 40%, rgba(166,10,10,.35), transparent 60%);
+      mix-blend-mode:screen;animation:flare 12s ease-in-out infinite alternate}
+    @keyframes flare{0%{transform:translateY(0) scale(1)}100%{transform:translateY(-6%) scale(1.05)}}
+    @media (prefers-reduced-motion: reduce){.hero::before{animation:none}}
+    .title-animate{animation:appear .9s ease-out both}
+    @keyframes appear{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
+    @media (prefers-reduced-motion: reduce){.title-animate{animation:none}}
+  </style>
 </head>
 <body>
   <header>
@@ -59,7 +82,7 @@
     <div class="container grid two">
       <section>
         <p class="badge">Concert — Page vitrine pédagogique</p>
-        <h1>Fally Ipupa — Saint‑Denis, samedi 2 mai 2026</h1>
+        <h1 class="title-animate">Fally Ipupa — Saint‑Denis, samedi 2 mai 2026</h1>
         <p class="muted">Lieu : Stade de France — Tournée : Concert au Stade de France</p>
         <p>
           <strong>Annonce officielle (≈300 mots).</strong> Le mercredi 1er octobre 2025, Fally Ipupa a annoncé un concert au <em>Stade de France</em> pour le <strong>samedi 2 mai 2026</strong>. Cette page vitrine rassemble, façon dossier press/web, les éléments clés de l’annonce : affiches, visuels, liens utiles et extraits médias. L’objectif pédagogique de ce livrable est double : 1) montrer une <strong>structuration claire</strong> de l’information (sections, titres, hyperliens, métadonnées) ; 2) intégrer des <strong>formats variés</strong> (images JPEG/PNG, logo SVG, PDF programme, teaser MP4, extrait audio MP3, bloc JSON) dans une présentation web sobre et cohérente.
