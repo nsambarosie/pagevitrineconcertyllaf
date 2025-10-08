@@ -64,137 +64,108 @@
     pre{overflow:auto;background:#0f0f0f;border:1px solid #222;border-radius:12px;padding:.8rem}
     .mono{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--ink)}
   .meta{color:var(--crimson);font-weight:600;letter-spacing:.3px}
-  </style>
-  <!-- Modern minimal font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style id="overrides-minimal">
-    /* === Overrides: modern minimal + accent red === */
-    :root{ --crimson:#A60A0A }
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
-    a{color:var(--crimson)} a:hover{color:var(--night)}
-    h1,h2{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:.4px}
-    h1{font-weight:700} h2{font-weight:600}
-    .btn{border-color:var(--crimson);color:#fff}
-    .btn--gold{background:var(--crimson);border-color:var(--crimson);color:#fff}
-    /* Hero animated red gradient overlay */
-    .hero{position:relative;overflow:hidden;background: url('assets/fally-arriere-plan.jpg') center/cover fixed}
-    .hero::before{content:"";position:absolute;inset:0;background:
-      radial-gradient(120% 60% at 10% 0%, rgba(166,10,10,.45), transparent 60%),
-      radial-gradient(120% 60% at 90% 40%, rgba(166,10,10,.35), transparent 60%);
-      mix-blend-mode:screen;animation:flare 12s ease-in-out infinite alternate}
-    @keyframes flare{0%{transform:translateY(0) scale(1)}100%{transform:translateY(-6%) scale(1.05)}}
-    @media (prefers-reduced-motion: reduce){.hero::before{animation:none}}
-    .title-animate{color:var(--crimson);animation:enter .9s ease-out both, glow 2.4s ease-in-out 2 .2s, wiggle 1.4s ease-in-out 2 .3s}
-    @keyframes enter{0%{opacity:0;transform:translateY(14px) scale(.98)}100%{opacity:1;transform:translateY(0) scale(1)}}
-    @keyframes glow{0%,100%{text-shadow:0 0 0 rgba(166,10,10,0)}50%{text-shadow:0 0 18px rgba(166,10,10,.55)}}
-    @keyframes wiggle{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(3px)}}
-    @media (prefers-reduced-motion: reduce){.title-animate{animation:none;text-shadow:none}}
-}
-    /* === HERO BOOST DYNAMIQUE (à coller en bas du <style>) === */
-
-/* 1) Overlay rouge + mouvement plus ample et plus rapide */
-.hero::before{
-  animation: flare 8s ease-in-out infinite alternate; /* avant 12s */
-  background:
-    radial-gradient(130% 65% at 10% 0%, rgba(166,10,10,.55), transparent 60%),
-    radial-gradient(130% 65% at 90% 40%, rgba(166,10,10,.40), transparent 60%);
-}
-@keyframes flare{
-  0%   { transform: translate(-3%, 2%) scale(1.02); }
-  100% { transform: translate(6%, -8%) scale(1.08); }
-}
-
-/* 2) Balayage lumineux discret (gloss diagonal) */
-.hero::after{
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(100deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.10) 50%, rgba(255,255,255,0) 70%);
-  mix-blend-mode:screen;
-  transform: translateX(-120%) rotate(2deg);
-  animation: sweep 5.5s ease-in-out infinite;
-  pointer-events:none;
-}
-@keyframes sweep{
-  0%   { transform: translateX(-120%) rotate(2deg); opacity:.18; }
-  50%  { opacity:.28; }
-  100% { transform: translateX(120%) rotate(2deg); opacity:.18; }
-}
-
-/* 3) Léger “float” du contenu texte (respire un peu) */
-.hero .section{
-  position: relative;
-  animation: floaty 4.8s ease-in-out infinite;
-}
-@keyframes floaty{
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-6px); }
-}
-
-/* Respecte l’accessibilité : coupe les anims si l’utilisateur n’en veut pas */
-@media (prefers-reduced-motion: reduce){
-  .hero::before, .hero::after, .hero .section { animation: none !important; }
-}
-/* 🌟 Balayage lumineux accentué */
-.hero::after{
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(
-    100deg,
-    rgba(255,255,255,0) 25%,
-    rgba(255,255,255,.20) 50%,
-    rgba(255,255,255,0) 75%
-  );
-  mix-blend-mode:screen;
-  transform: translateX(-120%) rotate(2deg);
-  animation: sweep 5s ease-in-out infinite;
-  pointer-events:none;
-}
-@keyframes sweep{
-  0%   { transform: translateX(-120%) rotate(2deg); opacity:.25; }
-  50%  { opacity:.45; }
-  100% { transform: translateX(120%) rotate(2deg); opacity:.25; }
-}
-/* 🌌 Arrière-plan image floutée + halo blanc + fondu doux */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("assets/fally-arriere-plan.JPG") center/contain no-repeat; 
-  opacity: 0.25; /* laisse un peu plus de présence au fond */
-  filter: blur(2px) brightness(0.85); /* 🔥 flou léger + baisse de la luminosité */
-  z-index: -2;
-  transform: scale(1.02);
-  animation: fadeInBg 2.5s ease-in-out forwards;
-}
-
-/* 🌫️ Halo blanc doux pour effet "fumée de concert" */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.85));
-  z-index: -1;
-  animation: fadeInBg 2.5s ease-in-out forwards;
-}
-
-/* ✨ Animation d’apparition du fond */
-@keyframes fadeInBg {
-  from {
-    opacity: 0;
-    transform: scale(1.05);
+ <style>
+  /* === Variables globales === */
+  :root{
+    --bg:#0A0A0A;        /* fond */
+    --ink:#FFFFFF;       /* texte blanc */
+    --crimson:#A60A0A;   /* accent rouge (liens/boutons si besoin) */
+    --night:#1B1F3B;     /* bleu nuit (peu utilisé) */
+    --muted:#9ca3af;     /* gris secondaire */
+    --card:#121212;      /* fond cartes */
+    --ring:rgba(255,255,255,.25); /* halo blanc sur hover */
   }
-  to {
-    opacity: 1;
-    transform: scale(1.02);
+
+  /* === Base === */
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    line-height:1.65;
   }
-}
-  </style>
+  img{max-width:100%;height:auto;border-radius:12px}
+  a{color:var(--crimson);text-decoration:none}
+  a:hover{color:var(--night);text-decoration:underline}
+
+  /* === Header / Nav === */
+  header{position:sticky;top:0;background:rgba(10,10,10,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #333;z-index:50}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.75rem 1.2rem}
+  .brand{font-family:"Bodoni Moda",serif;font-weight:700;font-size:1.1rem;letter-spacing:.3px;color:var(--ink)}
+  .menu{display:flex;flex-wrap:wrap;gap:.9rem}
+  /* MENU en FULL CAPS blanc, contour blanc */
+  .menu a{
+    padding:.45rem .7rem;border-radius:999px;border:1px solid #fff;
+    color:#fff;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;
+    transition:all .3s ease;
+  }
+  .menu a:hover{
+    background:rgba(255,255,255,.1);
+    box-shadow:0 0 10px rgba(255,255,255,.3);
+    transform:scale(1.05);
+  }
+
+  /* === Titres === */
+  h1,h2{font-family:"Bodoni Moda",serif;letter-spacing:.3px;margin:0}
+  h1{font-weight:700;color:var(--ink)}
+  h2{font-weight:600;color:var(--ink)}
+  .meta{color:var(--ink);font-weight:600;letter-spacing:.3px}
+
+  /* === Sections & cartes === */
+  .section{padding:2.5rem 1.2rem;max-width:1100px;margin:auto}
+  .card{background:var(--card);border:1px solid #333;border-radius:18px;padding:1.1rem;margin-bottom:1rem}
+
+  /* === HERO : image de fond floutée + halo + animations === */
+  .hero{position:relative;overflow:hidden;padding:3.5rem 0;background:url('assets/fally-arriere-plan.jpg') center/cover fixed}
+  /* si tu veux l’image de body en plus : (facultatif, tu peux laisser uniquement le hero) */
+  body::before{
+    content:"";position:fixed;inset:0;
+    background:url("assets/fally-arriere-plan.jpg") center/contain no-repeat;
+    opacity:.25;filter:blur(2px) brightness(.85);
+    z-index:-2;transform:scale(1.02);animation:fadeInBg 2.5s ease-in-out forwards;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;
+    background:radial-gradient(circle at 50% 40%, rgba(255,255,255,.05), rgba(0,0,0,.85));
+    z-index:-1;animation:fadeInBg 2.5s ease-in-out forwards;
+  }
+
+  /* Overlay rouge animé sur le hero (mouvement + balayage) */
+  .hero::before{
+    content:"";position:absolute;inset:0;mix-blend-mode:screen;
+    background:
+      radial-gradient(130% 65% at 10% 0%, rgba(166,10,10,.55), transparent 60%),
+      radial-gradient(130% 65% at 90% 40%, rgba(166,10,10,.40), transparent 60%);
+    animation:flare 8s ease-in-out infinite alternate;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;mix-blend-mode:screen;pointer-events:none;
+    background:linear-gradient(100deg, rgba(255,255,255,0) 25%, rgba(255,255,255,.20) 50%, rgba(255,255,255,0) 75%);
+    transform:translateX(-120%) rotate(2deg);
+    animation:sweep 5s ease-in-out infinite;
+  }
+
+  /* Contenu du hero qui “respire” légèrement */
+  .hero .section{position:relative;animation:floaty 4.8s ease-in-out infinite}
+
+  /* Titre du hero animé (entrée + glow + léger wiggle) */
+  .title-animate{
+    animation:enter .9s ease-out both, glow 2.4s ease-in-out 2 .2s, wiggle 1.4s ease-in-out 2 .3s;
+  }
+
+  /* === Keyframes (UNE seule définition de chaque) === */
+  @keyframes enter{0%{opacity:0;transform:translateY(14px) scale(.98)}100%{opacity:1;transform:translateY(0) scale(1)}}
+  @keyframes glow{0%,100%{text-shadow:0 0 0 rgba(255,255,255,0)}50%{text-shadow:0 0 18px rgba(255,255,255,.55)}}
+  @keyframes wiggle{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(3px)}}
+  @keyframes flare{0%{transform:translate(-3%,2%) scale(1.02)}100%{transform:translate(6%,-8%) scale(1.08)}}
+  @keyframes sweep{0%{transform:translateX(-120%) rotate(2deg);opacity:.25}50%{opacity:.45}100%{transform:translateX(120%) rotate(2deg);opacity:.25}}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes fadeInBg{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:scale(1.02)}}
+
+  /* Accessibilité : réduire les animations si demandé */
+  @media (prefers-reduced-motion: reduce){
+    .hero::before, .hero::after, .hero .section, .title-animate, body::before, body::after { animation:none !important; text-shadow:none !important; }
+  }
+</style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
 <body>
