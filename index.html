@@ -15,9 +15,24 @@
     .container{max-width:1050px;margin:auto;padding:0 1.1rem}
     nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
     .brand{font-family:"Playfair Display",serif;color:var(--ink);font-weight:700}
-    .menu{display:flex;gap:1rem}
-    .menu a{padding:.45rem .75rem;border-radius:999px;border:1px solid transparent}
-    .menu a:hover{border-color:var(--ring);box-shadow:0 0 0 .25rem var(--ring)}
+    /* 🔗 Liens du menu */
+.menu a {
+  padding: .45rem .7rem;
+  border-radius: 999px;
+  border: 1px solid #fff; /* cadre blanc */
+  color: #fff; /* texte blanc */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: rgba(255,255,255,0.1); /* léger effet au survol */
+  box-shadow: 0 0 10px rgba(255,255,255,0.3); /* glow blanc chic */
+  transform: scale(1.05);
+}
+
     h1,h2{font-family:"Bodoni Moda", serif;letter-spacing:.3px}
     h1{font-weight:700}
     h2{font-weight:600}
