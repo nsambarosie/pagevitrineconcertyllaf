@@ -196,6 +196,29 @@ body::before{
 .title-animate{
   text-transform: uppercase;
 }
+    /* === PATCH FINAL HEADER & BACKGROUND === */
+
+/* 1) Texte du logo à gauche en rouge avec effet glow au survol */
+.brand{
+  color: var(--crimson);
+  font-weight: 700;
+  transition: text-shadow .3s ease, color .3s ease;
+}
+.brand:hover{
+  text-shadow: 0 0 10px rgba(166,10,10,0.6);
+  color: #fff; /* petit contraste blanc au hover */
+}
+
+/* 2) Fond : flou plus léger */
+body::before{
+  opacity: .12; /* léger voile rouge */
+  filter: blur(1.5px) brightness(.78);
+}
+
+/* 3) Suppression du texte inutile sous le titre (si existant) */
+.subtitle, .meta, .metadata{
+  display: none !important;
+}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
