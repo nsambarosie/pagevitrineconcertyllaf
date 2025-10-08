@@ -129,6 +129,30 @@
   50%  { opacity:.45; }
   100% { transform: translateX(120%) rotate(2deg); opacity:.25; }
 }
+    /* 🌌 Arrière-plan image + halo rouge cinématique */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("assets/fally-arriere-plan.JPG") center/cover no-repeat;
+  opacity: 0.18; /* 🔹 Ajuste entre 0.1 et 0.25 selon ton rendu */
+  z-index: -2;
+}
+
+/* 🔥 Halo rouge subtil pour ambiance concert */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 0, 0, 0.08), rgba(0, 0, 0, 0.85));
+  z-index: -1;
+}
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
