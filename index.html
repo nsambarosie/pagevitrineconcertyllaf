@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CONCERT — Fally Ipupa — Page vitrine</title>
+  <meta name="description" content="Page vitrine simple et cohérente pour un concert réel (devoir Design de l'information)." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#0A0A0A; --ink:#FFFFFF; --gold:#D4AF37; --night:#1B1F3B; --muted:#9ca3af; --card:#121212; --ring:rgba(212,175,55,.35); --crimson:#A60A0A }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Lato,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--gold)} a:hover{color:var(--night)}
+    header{position:sticky;top:0;background:rgba(10,10,10,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #222;z-index:40}
+    .container{max-width:1050px;margin:auto;padding:0 1.1rem}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+    .brand{font-family:"Playfair Display",serif;color:var(--gold);font-weight:700}
+    .menu{display:flex;gap:1rem}
+    .menu a{padding:.45rem .75rem;border-radius:999px;border:1px solid transparent}
+    .menu a:hover{border-color:var(--ring);box-shadow:0 0 0 .25rem var(--ring)}
+    h1,h2{font-family:"Playfair Display",serif}
+    .hero{padding:3rem 0;background: linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.35)), url('assets/fally-arriere-plan.jpg') center/cover fixed}
+    .grid{display:grid;gap:1.1rem}
+    .two{grid-template-columns:1fr} @media(min-width:860px){.two{grid-template-columns:1.1fr .9fr}}
+    .card{background:var(--card);border:1px solid #222;border-radius:18px;padding:1rem}
+    .section{padding:2rem 0}
+    .badge{display:inline-block;border:1px solid #333;border-radius:999px;padding:.25rem .6rem;font-size:.8rem;margin:.15rem .25rem 0 0}
+    img{max-width:100%;height:auto;border-radius:12px}
+    figure{margin:0}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem}
+    .thumb{cursor:pointer;border:1px solid #222}
+    .footer{padding:2rem 0;border-top:1px solid #222;color:var(--muted)}
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;padding:2rem}
+    .lightbox img{max-width:90vw;max-height:80vh;border-radius:12px}
+    .close{position:absolute;top:18px;right:18px;background:var(--gold);color:#111;border:none;border-radius:999px;padding:.4rem .7rem;cursor:pointer}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.6rem .9rem;border:1px solid var(--gold);color:var(--ink)}
+    .btn--gold{background:var(--gold);color:#111;border-color:var(--gold)}
+    pre{overflow:auto;background:#0f0f0f;border:1px solid #222;border-radius:12px;padding:.8rem}
+    .mono{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--gold)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Navigation principale">
+        <div class="brand">Fally Ipupa — Concert au Stade de France</div>
+        <div class="menu">
+          <a href="#about">À propos</a>
+          <a href="#gallery">Images</a>
+          <a href="#media">Médias</a>
+          <a href="#infos">Infos</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="container grid two">
+      <section>
+        <p class="badge">Concert — Page vitrine pédagogique</p>
+        <h1>Fally Ipupa — Saint‑Denis, samedi 2 mai 2026</h1>
+        <p class="muted">Lieu : Stade de France — Tournée : Concert au Stade de France</p>
+        <p>
+          <strong>Annonce officielle (≈300 mots).</strong> Le mercredi 1er octobre 2025, Fally Ipupa a annoncé un concert au <em>Stade de France</em> pour le <strong>samedi 2 mai 2026</strong>. Cette page vitrine rassemble, façon dossier press/web, les éléments clés de l’annonce : affiches, visuels, liens utiles et extraits médias. L’objectif pédagogique de ce livrable est double : 1) montrer une <strong>structuration claire</strong> de l’information (sections, titres, hyperliens, métadonnées) ; 2) intégrer des <strong>formats variés</strong> (images JPEG/PNG, logo SVG, PDF programme, teaser MP4, extrait audio MP3, bloc JSON) dans une présentation web sobre et cohérente.
+          La section « Images » propose huit visuels (affiche officielle, vues de scène, ambiance, détails scéniques, bannière promo). Un clic ouvre une <em>lightbox</em> pour afficher chaque image en grand. La section « Médias » intègre un <strong>teaser vidéo</strong> (MP4) et un <strong>extrait audio</strong> (MP3), ainsi qu’un <strong>programme PDF</strong> synthétique (setlist/infos). Un bloc <strong>JSON</strong> expose des métadonnées minimales (artiste, date, ville, salle, liens). Enfin, la section « Infos & liens » agrège les liens vers les réseaux officiels (artiste et Stade de France), la billetterie, la carte du lieu, et mon <strong>thread X</strong> rédigé à l’occasion du concert du 25 novembre 2023 à Paris La Défense Arena (retour d’expérience personnel).
+          Ce format « page d’annonce » allie sobriété visuelle (fond noir, accents or/bleu nuit, touche rouge inspirée de l’affiche) et efficacité fonctionnelle pour rendre l’information <em>claire, vérifiable et consultable</em>. Il répond aux critères du cours (structure, images, interaction, publication) tout en assumant une touche personnelle mesurée.
+        </p>
+        <div class="cta">
+          <a class="btn btn--gold" href="#gallery">Voir les images</a>
+          <a class="btn" href="#media">Aller aux médias</a>
+        </div>
+      </section>
+      <aside aria-label="Affiche du concert" class="card">
+        <figure>
+          <img src="assets/fally-affiche-officielle.jpg" alt="Affiche officielle du concert de Fally Ipupa au Stade de France" />
+          <figcaption class="muted">Affiche (JPEG) — image 1/8</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Galerie d’images (7–10 images) -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2>Galerie — 8 visuels</h2>
+      <p class="muted">Clique sur une vignette pour l’agrandir.</p>
+      <div class="gallery" role="list">
+        <figure role="listitem"><img class="thumb" src="assets/fally-affiche-officielle.jpg" alt="Affiche officielle — Fally Ipupa SDF" data-full="assets/fally-affiche-officielle.jpg"></figure>
+        <figure role="listitem"><img class="thumb" src="assets/vignette-01.jpg" alt="Vue de scène (placeholder)" data-full="assets/visuel-01.jpg"></figure>
+        <figure role="listitem"><img class="thumb" src="assets/vignette-02.jpg" alt="Public (placeholder)" data-full="assets/visuel-02.jpg"></figure>
+        <figure role="listitem"><img class="thumb" src="assets/vignette-03.jpg" alt="Lumières (placeholder)" data-full="assets/visuel-03.jpg"></figure>
+        <figure role="listitem"><img class="thumb" src="assets/vignette-04.jpg" alt="Musiciens (placeholder)" data-full="assets/visuel-04.jpg"></figure>
+        <figure role="listitem"><img class="thumb" src="assets/vignette-05.jpg" alt="Détails scéniques (placeholder)" data-full="assets/visuel-05.jpg"></figure>
+        <figure role="listitem"><img class="thumb" src="assets/fally-banniere-officielle.jpg" alt="Bannière officielle — One Night One King One Stage" data-full="assets/fally-banniere-officielle.jpg"></figure>
+        <figure role="listitem"><img class="thumb" src="assets/vignette-07.jpg" alt="Ambiance finale (placeholder)" data-full="assets/visuel-07.jpg"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section fan / touche perso -->
+  <section id="fan" class="section">
+    <div class="container grid two">
+      <div>
+        <h2>Touche perso — Fan corner</h2>
+        <p>Parce que ce concert a aussi une dimension personnelle, je présente brièvement des souvenirs de fan : <em>photo avec l’artiste</em>, <em>album dédicacé</em> et <em>t‑shirt personnalisé</em>. Cette section illustre comment un récit individuel peut s’intégrer à une page d’information sans nuire à la clarté : contenus courts, métadonnées explicites, visuels normalisés.</p>
+      </div>
+      <aside class="card">
+        <figure><img src="assets/fan-photo.jpg" alt="Photo souvenir avec Fally Ipupa" /></figure>
+        <figure><img src="assets/fan-album.jpg" alt="Album dédicacé — Fally Ipupa" /></figure>
+        <figure><img src="assets/fan-tee.jpg" alt="T‑shirt personnalisé — Fally Ipupa" /></figure>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Médias (formats variés) -->
+  <section id="reactions" class="section">
+    <div class="container">
+      <h2>Réactions social media</h2>
+      <p class="muted">Captures de posts et commentaires à l’annonce — ajoute tes captures ici (Twitter/X, Instagram).</p>
+      <div class="gallery">
+        <figure><img class="thumb" src="assets/capture-x-01.jpg" alt="Capture X — annonce" data-full="assets/capture-x-01.jpg"></figure>
+        <figure><img class="thumb" src="assets/capture-insta-01.jpg" alt="Capture Instagram — commentaires" data-full="assets/capture-insta-01.jpg"></figure>
+        <figure><img class="thumb" src="assets/capture-x-02.jpg" alt="Capture X — retweets" data-full="assets/capture-x-02.jpg"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="media" class="section">
+    <div class="container grid two">
+      <div class="card">
+        <h2>Médias</h2>
+        <h3>Teaser (MP4)</h3>
+        <video controls preload="metadata" style="width:100%;border-radius:12px">
+          <source src="assets/teaser.mp4" type="video/mp4" />
+          Votre navigateur ne prend pas en charge la vidéo.
+        </video>
+        <h3>Extrait audio (MP3)</h3>
+        <audio controls>
+          <source src="assets/extrait.mp3" type="audio/mpeg" />
+          Votre navigateur ne prend pas en charge l’audio.
+        </audio>
+        <p class="muted">Formats couverts : <span class="badge">html</span> <span class="badge">jpg/png</span> <span class="badge">pdf</span> <span class="badge">mp4</span> <span class="badge">mp3</span> <span class="badge">json</span></p>
+      </div>
+      <aside class="card">
+        <h2>Documents & données</h2>
+        <ul>
+          <li>Programme / setlist (PDF) — <a href="docs/programme.pdf" target="_blank" rel="noopener">ouvrir</a></li>
+          <li>Logo (SVG) — <a href="assets/logo.svg" target="_blank" rel="noopener">ouvrir</a></li>
+        </ul>
+        <h3>Métadonnées (JSON)</h3>
+        <pre class="mono">{
+  "artiste": "Fally Ipupa",
+  "tour": "Concert au Stade de France",
+  "date": "samedi 2 mai 2026",
+  "ville": "Saint-Denis",
+  "salle": "Stade de France",
+  "liens": {
+    "billetterie": "https://exemple-billetterie.com",
+    "officiel": "https://www.stadefrance.com/",
+    "carte": "https://maps.example.com/?q=Stade%20de%20France"
+  }
+}</pre>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Infos pratiques + hyperliens externes -->
+  <section id="infos" class="section">
+    <div class="container grid two">
+      <div>
+        <h2>Infos & liens</h2>
+        <p>
+          Billetterie : <a href="https://exemple-billetterie.com" target="_blank" rel="noopener">ouvrir</a> ·
+          Site officiel artiste : <a href="https://www.youtube.com/@FallyIpupa" target="_blank" rel="noopener">YouTube</a> ·
+          Instagram : <a href="https://www.instagram.com/fallyipupa01/" target="_blank" rel="noopener">@fallyipupa01</a> ·
+          X/Twitter : <a href="https://twitter.com/fallyipupa01" target="_blank" rel="noopener">@fallyipupa01</a> ·
+          Stade de France : <a href="https://www.stadefrance.com/" target="_blank" rel="noopener">site</a> ·
+          Mon thread X (25/11/2023) : <a href="https://x.com/ton_handle/status/123" target="_blank" rel="noopener">lire</a> ·
+          Teaser YouTube : <a href="https://www.youtube.com/watch?v=xxxxx" target="_blank" rel="noopener">voir</a> ·
+          Lieu (carte) : <a href="https://maps.example.com/?q=Stade%20de%20France" target="_blank" rel="noopener">voir</a>
+        </p>
+        <p class="muted">Remplace les URLs par les liens réels (billetterie, teaser, thread, cartes) et ajoute tes captures dans la section « Réactions » ci‑dessus.</p>
+      </div>
+      <aside class="card">
+        <h3>Contact</h3>
+        <p><a href="mailto:prenom.nom@mail.com">prenom.nom@mail.com</a> · <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Aperçu de l’image">
+    <button class="close" aria-label="Fermer" onclick="hideLightbox()">Fermer ×</button>
+    <img src="" alt="Aperçu" id="lightbox-img" />
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> — Page vitrine de concert (devoir Design de l’information, M2 GSI).</p>
+    </div>
+  </footer>
+
+  <script>
+    // Année dynamique
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox simple
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    function showLightbox(src){ lbImg.src = src; lb.style.display = 'flex'; lb.setAttribute('aria-hidden','false'); }
+    function hideLightbox(){ lb.style.display = 'none'; lb.setAttribute('aria-hidden','true'); lbImg.src = ''; }
+    document.querySelectorAll('.thumb').forEach(img=>{ img.addEventListener('click',()=>{ showLightbox(img.dataset.full || img.src); }); });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') hideLightbox(); });
+  </script>
+</body>
+</html>
