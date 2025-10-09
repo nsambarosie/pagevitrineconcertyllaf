@@ -355,6 +355,69 @@ header nav {
   color: #ddd;
   margin-top: 0.5rem;
 }
+/* === SETLIST (HTML pur, DA noir/blanc/rouge) === */
+#setlist h2 { color:#fff; } /* titre de section blanc pour rester clean */
+.setlist-slogan{
+  text-align:center;
+  color: var(--crimson); /* rouge signature */
+  letter-spacing:.8px;
+  font-weight:600;
+  margin: .2rem 0 1.1rem;
+  text-transform: uppercase;
+}
+
+/* Liste responsive : 1 colonne mobile, 2 colonnes desktop */
+.setlist-list{
+  list-style:none; counter-reset: track;
+  display:grid; gap:.6rem 1.2rem;
+  padding:0; margin:0;
+}
+.setlist-list li{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #333;
+  border-radius:12px;
+  padding:.7rem .9rem;
+  line-height:1.45;
+  color:#fff;
+  display:flex; gap:.6rem;
+}
+.setlist-list .num{
+  color: var(--crimson);
+  font-weight:700;
+  min-width:3ch; /* aligne 01. 02. */
+  display:inline-block;
+}
+.setlist-list em{ color:#ddd; font-style:normal; }
+
+/* 2 colonnes à partir de 860px */
+@media (min-width: 860px){
+  .setlist-list{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Footer (date + logo rouge discret) */
+.setlist-footer{
+  margin-top:1.2rem;
+  display:flex; align-items:center; justify-content:space-between;
+  color:#ddd;
+  border-top:1px solid #333;
+  padding-top:.9rem;
+}
+.setlist-logo{
+  height:32px; width:auto; display:block;
+  filter: saturate(1.1) brightness(1); /* logo rouge fidèle */
+}
+
+/* Hover subtil pour la vibe luxe */
+.setlist-list li{
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.setlist-list li:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  border-color: rgba(166,10,10,.45);
+}    
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
