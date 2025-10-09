@@ -640,20 +640,6 @@ html, body { overflow-x: hidden; }
     <figcaption class="muted">🎧 Extrait audio — MP3</figcaption>
   </figure>
   
-<h2>MÉTADONNÉES (JSON)</h2>
-      <pre class="mono">{
-  "artiste": "Fally Ipupa",
-  "tour": "Concert au Stade de France",
-  "date": "samedi 2 mai 2026",
-  "ville": "Saint-Denis",
-  "salle": "Stade de France",
-  "liens": {
-    "billetterie": "https://www.stadefrance.com/fr/billetterie/fally-ipupa",
-    "officiel": "https://www.stadefrance.com/",
-    "carte": "https://maps.example.com/?q=Stade%20de%20France",
-    "threadX": "https://x.com/muanapopi/status/1717314832343429364"
-  }
-}</pre>
     </aside>
   </div>
 </section>
@@ -806,6 +792,26 @@ html, body { overflow-x: hidden; }
   </div>
 </section>
 
+<h2>MÉTADONNÉES (JSON)</h2>
+      <pre class="mono">{
+  "artiste": "Fally Ipupa",
+  "tour": "Concert au Stade de France",
+  "date": "samedi 2 mai 2026",
+  "ville": "Saint-Denis",
+  "salle": "Stade de France",
+  "liens": {
+    "billetterie": "https://www.stadefrance.com/fr/billetterie/fally-ipupa",
+    "officiel": "https://www.stadefrance.com/",
+    "carte": "https://maps.example.com/?q=Stade%20de%20France",
+    "threadX": "https://x.com/muanapopi/status/1717314832343429364"
+  }
+}</pre>  
+  
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Aperçu de l’image">
+    <button class="close" aria-label="Fermer" onclick="hideLightbox()">Fermer ×</button>
+    <img src="" alt="Aperçu" id="lightbox-img" />
+  </div>
+  
 <footer class="footer">
   <div class="container" style="text-align:center;padding:1.2rem 0;border-top:1px solid rgba(255,255,255,0.1);margin-top:3rem;">
     <p style="color:#ccc;font-size:0.9rem;line-height:1.6;">
