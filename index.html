@@ -219,23 +219,30 @@ body::before{
 .subtitle, .meta, .metadata{
   display: none !important;
 }
+    /* Logo header */
+.brand { display:flex; align-items:center; }
+.brand-logo { height:42px; width:auto; display:block; }
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav aria-label="Navigation principale">
-        <div class="brand">Fally Ipupa — Concert au Stade de France</div>
-        <div class="menu">
-          <a href="#about">À propos</a>
-          <a href="#gallery">Images</a>
-          <a href="#media">Médias</a>
-          <a href="#infos">Infos</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="container">
+    <nav aria-label="Navigation principale">
+      <a class="brand" href="#top" aria-label="Accueil – Fally Ipupa">
+        <img src="assets/logo_horizontal.png"
+             alt="FALLY IPUPA — STADE DE FRANCE | 02.05.26"
+             class="brand-logo">
+      </a>
+      <div class="menu">
+        <a href="#about">À propos</a>
+        <a href="#gallery">Images</a>
+        <a href="#media">Médias</a>
+        <a href="#infos">Infos</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
   <main class="hero">
     <div class="container grid two">
