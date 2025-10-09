@@ -222,6 +222,41 @@ body::before{
     /* Logo header */
 .brand { display:flex; align-items:center; }
 .brand-logo { height:64px; width:auto; display:block; }
+    /* Harmonisation du header : logo impactant + menu plus léger */
+.menu a {
+  font-size: 0.9rem;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.menu {
+  gap: 1.2rem; /* espace entre les liens */
+}
+/* Effet survol ligne rouge animée sous les liens du menu */
+.menu a {
+  position: relative;
+  color: var(--crimson);
+  transition: color 0.3s ease;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: var(--crimson);
+  transition: width 0.35s ease;
+}
+
+.menu a:hover {
+  color: #fff;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
