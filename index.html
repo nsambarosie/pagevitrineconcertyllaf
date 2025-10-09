@@ -411,44 +411,54 @@ header nav {
     </div>
   </section>
 
-  <section id="media" class="section">
-    <div class="container grid two">
-      <div class="card">
-        <h2>Médias</h2>
-        <h3>Teaser (MP4)</h3>
-        <video controls preload="metadata" style="width:100%;border-radius:12px">
-          <source src="assets/fally-teaser.mp4" type="video/mp4" />
-          Votre navigateur ne prend pas en charge la vidéo.
-        </video>
-        <h3>Extrait audio (MP3)</h3>
-        <audio controls>
-          <source src="assets/fally-extrait.mp3" type="audio/mpeg" />
-          Votre navigateur ne prend pas en charge l’audio.
-        </audio>
-        <p class="muted">Formats couverts : <span class="badge">html</span> <span class="badge">jpg/png</span> <span class="badge">pdf</span> <span class="badge">mp4</span> <span class="badge">mp3</span> <span class="badge">json</span></p>
-      </div>
-      <aside class="card">
-        <h2>Documents & données</h2>
-        <ul>
-          <li>Programme / setlist (PDF) — <a href="docs/programme.pdf" target="_blank" rel="noopener">ouvrir</a></li>
-          <li>Logo (SVG) — <a href="assets/logo.svg" target="_blank" rel="noopener">ouvrir</a></li>
-        </ul>
-        <h3>Métadonnées (JSON)</h3>
-        <pre class="mono">{
-  "artiste": "Fally Ipupa",
-  "tour": "Concert au Stade de France",
-  "date": "samedi 2 mai 2026",
-  "ville": "Saint-Denis",
-  "salle": "Stade de France",
-  "liens": {
-    "billetterie": "https://exemple-billetterie.com",
-    "officiel": "https://www.stadefrance.com/",
-    "carte": "https://maps.example.com/?q=Stade%20de%20France"
-  }
-}</pre>
-      </aside>
-    </div>
-  </section>
+<section id="medias" class="section container">
+  <h2>MÉDIAS</h2>
+
+  <!-- Teaser vidéo -->
+  <figure class="card">
+    <video controls preload="metadata" style="width:100%;border-radius:12px;">
+      <source src="assets/teaser.mp4" type="video/mp4">
+      Ton navigateur ne supporte pas la vidéo. <a href="assets/teaser.mp4" download>Télécharger</a>
+    </video>
+    <figcaption class="muted">🎬 Teaser officiel — MP4</figcaption>
+  </figure>
+
+  <!-- Extrait audio -->
+  <figure class="card">
+    <audio controls preload="none" style="width:100%;outline:none;border-radius:12px;">
+      <source src="assets/fally-extrait.mp3" type="audio/mpeg">
+      Ton navigateur ne supporte pas l’audio.
+      <a href="assets/fally-extrait.mp3" download>Télécharger</a>
+    </audio>
+    <figcaption class="muted">🎧 Extrait audio — MP3</figcaption>
+  </figure>
+
+  <!-- Fiches promo -->
+  <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
+
+    <!-- Fiche promo signée avec QR code -->
+    <figure class="card">
+      <img src="assets/promo_square_qr_signed_v2.png" alt="Fiche promo — version signée avec QR code">
+      <figcaption class="muted">
+        🖋️ Fiche promo — version signée + QR billetterie  
+        <a href="https://www.stadefrance.com/fr/billetterie/fally-ipupa" target="_blank" rel="noopener">→ Réserver ma place</a>
+      </figcaption>
+    </figure>
+
+    <!-- Fiche promo sans QR mais signée -->
+    <figure class="card">
+      <img src="assets/promo_square_signed_noqr_v2.png" alt="Fiche promo sans QR — signée">
+      <figcaption class="muted">🖋️ Fiche promo — signée sans QR</figcaption>
+    </figure>
+
+    <!-- Fiche promo sans QR ni signature -->
+    <figure class="card">
+      <img src="assets/promo_square_noqr_nosig_v2.png" alt="Fiche promo — sans QR ni signature">
+      <figcaption class="muted">📄 Fiche promo — version clean sans signature</figcaption>
+    </figure>
+
+  </div>
+</section>
 
   <!-- Infos pratiques + hyperliens externes -->
   <section id="infos" class="section">
