@@ -576,26 +576,36 @@ header nav {
       <figcaption class="muted">📄 Fiche promo — version clean sans signature</figcaption>
     </figure>
 
-    <!-- Réactions social media (carrousel auto) -->
+   <!-- Réactions social media (carrousel + affiche à droite) -->
 <section id="reactions" class="section">
-  <div class="container">
-    <h2>RÉACTIONS — RÉSEAUX SOCIAUX</h2>
-    <p class="muted">Sélection de tweets et commentaires suite à l’annonce.</p>
+  <div class="container grid two" style="align-items:center;gap:2rem;">
+    
+    <!-- Colonne 1 : carrousel -->
+    <div>
+      <h2>RÉACTIONS — RÉSEAUX SOCIAUX</h2>
+      <p class="muted">Sélection de tweets et commentaires suite à l’annonce.</p>
 
-    <div class="carousel" aria-roledescription="carousel" aria-label="Réactions social media">
-      <div class="carousel-track">
-        <figure class="slide"><img src="assets/tweet_kulturlesite.jpg" alt="Tweet Kultur Le Site"></figure>
-        <figure class="slide"><img src="assets/tweet_iblevrai.jpg" alt="Tweet Ible Vrai"></figure>
-        <figure class="slide"><img src="assets/reaction_1.jpg" alt="Réaction 1"></figure>
-        <figure class="slide"><img src="assets/reaction_2.jpg" alt="Réaction 2"></figure>
-        <figure class="slide"><img src="assets/reaction_3.jpg" alt="Réaction 3"></figure>
-        <figure class="slide"><img src="assets/reaction_4.jpg" alt="Réaction 4"></figure>
-        <figure class="slide"><img src="assets/reaction_5.jpg" alt="Réaction 5"></figure>
-        <figure class="slide"><img src="assets/message_fally.jpg" alt="Message de Fally Ipupa"></figure>
+      <div class="carousel" aria-roledescription="carousel" aria-label="Réactions social media">
+        <div class="carousel-track">
+          <figure class="slide"><img src="assets/tweet_kulturlesite.jpg" alt="Tweet Kultur Le Site"></figure>
+          <figure class="slide"><img src="assets/tweet_iblevrai.jpg" alt="Tweet Ible Vrai"></figure>
+          <figure class="slide"><img src="assets/reaction_1.jpg" alt="Réaction 1"></figure>
+          <figure class="slide"><img src="assets/reaction_2.jpg" alt="Réaction 2"></figure>
+          <figure class="slide"><img src="assets/recation_3.jpg" alt="Réaction 3"></figure>
+          <figure class="slide"><img src="assets/reaction_4.jpg" alt="Réaction 4"></figure>
+          <figure class="slide"><img src="assets/reaction_5.jpg" alt="Réaction 5"></figure>
+          <figure class="slide"><img src="assets/message_fally.jpg" alt="Message de Fally Ipupa"></figure>
+        </div>
       </div>
+
+      <div class="carousel-dots" aria-hidden="true"></div>
     </div>
 
-    <div class="carousel-dots" aria-hidden="true"></div>
+    <!-- Colonne 2 : visuel fixe -->
+    <div class="affiche-droite" style="text-align:center;">
+      <img src="assets/fally-affiche-officielle.jpg" alt="Affiche officielle — Fally Ipupa" style="max-width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.4);">
+    </div>
+
   </div>
 </section>
 
