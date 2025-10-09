@@ -522,7 +522,31 @@ html, body { overflow-x: hidden; }
 #intro .container {
   padding-left: 0; /* si ton thème a un padding gauche par défaut */
 }
-#promos h2 { margin-top: 0; }    
+#promos h2 { margin-top: 0; }
+/* === Harmonisation des titres de section === */
+.section h2 {
+  font-family: var(--title-font, 'Playfair Display', serif);
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-light, #fff);
+  margin-bottom: 0.6rem;
+  border-left: 3px solid var(--crimson, #b00);
+  padding-left: 0.4rem;
+}
+
+/* Supprime les styles internes aux cartes qui cassent tout */
+.card h2, .card h3 {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  border: none;
+  padding-left: 0;
+  color: inherit;
+}    
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
