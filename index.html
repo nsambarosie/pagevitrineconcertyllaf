@@ -422,85 +422,55 @@ header nav {
   counter-reset: none;
 }
 }
-/* === Carrousel Réactions (auto) === */
-.carousel{
-  position:relative;
-  width:100%;
-  height: 420px; /* hauteur fixe pour lisibilité */
-  overflow:hidden;
-  border:1px solid #333;
-  border-radius:14px;
-  background:rgba(255,255,255,.02);
-}
-@media (min-width: 960px){ .carousel{ height: 520px; } }
-
-.carousel-track{
-  display:flex;
-  width:100%;
-  height:100%;
-  transition: transform .6s ease;
+/* === Bandeau Réactions full-width === */
+:root{
+  --tile-w: clamp(220px, 26vw, 360px); /* largeur des vignettes */
+  --tile-h: clamp(160px, 26vh, 320px); /* hauteur des vignettes */
+  --tile-gap: 16px;
+  --strip-pad: 10px;
 }
 
-.slide{
-  min-width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:1rem;
-}
-.slide img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
-  border-radius:12px;
-  box-shadow:0 8px 24px rgba(0,0,0,.35);
+#reactions .container { padding-bottom: .6rem; }
+
+.reactions-strip{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: var(--strip-pad) 0;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  background: rgba(255,255,255,.02);
 }
 
-/* Petits points d’état */
-.carousel-dots{
-  display:flex; gap:.4rem; justify-content:center; margin-top:.6rem;
+.strip-track{
+  display: flex;
+  gap: var(--tile-gap);
+  will-change: transform;
 }
-.carousel-dots .dot{
-  width:8px; height:8px; border-radius:50%;
-  background:#555; opacity:.6;
-}
-.carousel-dots .dot.active{ background: var(--crimson); opacity:1; }
-    
- /* === Réactions : grille 2 colonnes robuste === */
-#reactions .grid.two{
-  display:grid;
-  grid-template-columns: minmax(0,1.3fr) minmax(0,0.9fr);
-  gap: 2rem;
+
+.tile{
+  flex: 0 0 var(--tile-w);
+  height: var(--tile-h);
+  margin: 0;
+  background: rgba(255,255,255,.03);
+  border: 1px solid #333;
+  border-radius: 14px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
-
-/* Taille cohérente avec le carrousel */
-#reactions .affiche-droite{
-  min-height: 420px;              /* même ordre de grandeur que le carrousel */
-  display:flex; align-items:center; justify-content:center;
-}
-@media (min-width: 960px){
-  .carousel{ height: 520px; }
-  #reactions .affiche-droite{ min-height: 520px; }
-}
-
-/* Image à droite : grande, mais contenue */
-#reactions .affiche-droite img{
-  display:block;
-  width:100%;
-  height:100%;
+.tile img{
+  max-width: 100%;
   max-height: 100%;
-  object-fit: contain;             /* pas de recadrage agressif */
-  border-radius:12px;
-  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  object-fit: contain;           /* formats hétérogènes OK */
+  display: block;
 }
 
-/* Empilage propre sur mobile */
-@media (max-width: 960px){
-  #reactions .grid.two{ grid-template-columns: 1fr; }
-  #reactions .affiche-droite{ margin-top: 1.2rem; min-height: auto; }
-  #reactions .affiche-droite img{ height:auto; }
+/* Hover pause feedback */
+.reactions-strip:hover .tile{
+  border-color: rgba(166,10,10,.45);
 }
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
@@ -612,34 +582,24 @@ header nav {
       <figcaption class="muted">📄 Fiche promo — version clean sans signature</figcaption>
     </figure>
 
-   <!-- Réactions social media (carrousel + affiche à droite) -->
+<!-- Réactions social media (bandeau plein écran, défilement auto) -->
 <section id="reactions" class="section">
-  <div class="container grid two" style="align-items:center;gap:2rem;">
-    
-    <!-- Colonne 1 : carrousel -->
-    <div>
-      <h2>RÉACTIONS — RÉSEAUX SOCIAUX</h2>
-      <p class="muted">Sélection de tweets et commentaires suite à l’annonce.</p>
+  <div class="container">
+    <h2>RÉACTIONS — RÉSEAUX SOCIAUX</h2>
+    <p class="muted">Sélection de tweets et commentaires suite à l’annonce.</p>
+  </div>
 
-      <div class="carousel" aria-roledescription="carousel" aria-label="Réactions social media">
-        <div class="carousel-track">
-          <figure class="slide"><img src="assets/tweet_kulturlesite.jpg" alt="Tweet Kultur Le Site"></figure>
-          <figure class="slide"><img src="assets/tweet_iblevrai.jpg" alt="Tweet Ible Vrai"></figure>
-          <figure class="slide"><img src="assets/reaction_1.jpg" alt="Réaction 1"></figure>
-          <figure class="slide"><img src="assets/reaction_2.jpg" alt="Réaction 2"></figure>
-          <figure class="slide"><img src="assets/reaction_3.jpg" alt="Réaction 3"></figure>
-          <figure class="slide"><img src="assets/reaction_4.jpg" alt="Réaction 4"></figure>
-          <figure class="slide"><img src="assets/reaction_5.jpg" alt="Réaction 5"></figure>
-          <figure class="slide"><img src="assets/message_fally.jpg" alt="Message de Fally Ipupa"></figure>
-        </div>
-      </div>
-
-      <div class="carousel-dots" aria-hidden="true"></div>
-    </div>
-
-    <!-- Colonne 2 : visuel fixe -->
-    <div class="affiche-droite" style="text-align:center;">
-      <img src="assets/fally-affiche-officielle.jpg" alt="Affiche officielle — Fally Ipupa" style="max-width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.4);">
+  <div class="reactions-strip" aria-roledescription="carousel" aria-label="Réactions social media">
+    <div class="strip-track">
+      <!-- 👉 Mets ici tes fichiers EXACTS (corrige 'recation_3.jpg' si besoin) -->
+      <figure class="tile"><img loading="lazy" src="assets/tweet_kulturlesite.jpg" alt="Tweet Kultur Le Site"></figure>
+      <figure class="tile"><img loading="lazy" src="assets/tweet_iblevrai.jpg" alt="Tweet Ible Vrai"></figure>
+      <figure class="tile"><img loading="lazy" src="assets/reaction_1.jpg" alt="Réaction 1"></figure>
+      <figure class="tile"><img loading="lazy" src="assets/reaction_2.jpg" alt="Réaction 2"></figure>
+      <figure class="tile"><img loading="lazy" src="assets/reaction_3.jpg" alt="Réaction 3"></figure> <!-- <- corrige si ton fichier s'appelle recation_3.jpg -->
+      <figure class="tile"><img loading="lazy" src="assets/reaction_4.jpg" alt="Réaction 4"></figure>
+      <figure class="tile"><img loading="lazy" src="assets/reaction_5.jpg" alt="Réaction 5"></figure>
+      <figure class="tile"><img loading="lazy" src="assets/message_fally.jpg" alt="Message de Fally Ipupa"></figure>
     </div>
   </div>
 </section>
@@ -750,43 +710,52 @@ header nav {
     document.querySelectorAll('.thumb').forEach(img=>{ img.addEventListener('click',()=>{ showLightbox(img.dataset.full || img.src); }); });
     document.addEventListener('keydown', e=>{ if(e.key==='Escape') hideLightbox(); });
   </script>
-  <script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
-  const track = document.querySelector('#reactions .carousel-track');
-  const slides = Array.from(track.children);
-  const dotsWrap = document.querySelector('#reactions .carousel-dots');
+  const strip = document.querySelector('.reactions-strip');
+  const track = document.querySelector('.strip-track');
+  if (!strip || !track) return;
 
-  // Crée les points
-  slides.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.className = 'dot' + (i===0 ? ' active' : '');
-    dotsWrap.appendChild(dot);
-  });
-  const dots = Array.from(dotsWrap.children);
+  // Duplique les slides pour boucle infinie
+  const clones = track.cloneNode(true).children;
+  [...clones].forEach(node => track.appendChild(node.cloneNode(true)));
 
-  let index = 0;
-  function goTo(i){
-    index = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((d, k) => d.classList.toggle('active', k === index));
-  }
+  // Calcul des dimensions
+  let x = 0;
+  let speed = 0.6; // px par frame (tu peux monter à 0.8–1.2 si tu veux + rapide)
+  let trackWidth = 0;
+
+  const measure = () => {
+    trackWidth = 0;
+    track.querySelectorAll('.tile').forEach(el => {
+      trackWidth += el.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap || 0);
+    });
+    // On a doublé les éléments, la moitié suffit pour la boucle
+    trackWidth = trackWidth / 2;
+  };
+
+  measure();
+  window.addEventListener('resize', measure, { passive: true });
+
+  let raf;
+  const tick = () => {
+    x -= speed;
+    if (Math.abs(x) >= trackWidth) x = 0; // reset boucle
+    track.style.transform = `translateX(${x}px)`;
+    raf = requestAnimationFrame(tick);
+  };
 
   // Auto-play
-  let timer = setInterval(() => goTo(index+1), 3500);
+  raf = requestAnimationFrame(tick);
 
   // Pause au survol
-  const carousel = document.querySelector('#reactions .carousel');
-  carousel.addEventListener('mouseenter', () => clearInterval(timer));
-  carousel.addEventListener('mouseleave', () => timer = setInterval(() => goTo(index+1), 3500));
+  strip.addEventListener('mouseenter', () => cancelAnimationFrame(raf));
+  strip.addEventListener('mouseleave', () => { raf = requestAnimationFrame(tick); });
 
-  // Navigation au clic sur les points
-  dots.forEach((d, k) => d.addEventListener('click', () => {
-    clearInterval(timer);
-    goTo(k);
-  }));
-
-  // Ajuste au resize (sécurité)
-  window.addEventListener('resize', () => goTo(index));
+  // Option accessibilité : pause si l'utilisateur préfère réduire les mouvements
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cancelAnimationFrame(raf);
+  }
 });
 </script>
 </body>
