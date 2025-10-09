@@ -546,19 +546,45 @@ html, body { overflow-x: hidden; }
 
   <main class="hero">
     <div class="container grid two">
-      <section>
-        <h1 class="title-animate">Fally Ipupa — Concert au Stade de France</h1>
-        <p class="meta">Saint‑Denis · Samedi 2 mai 2026 · Tournée : Concert au Stade de France</p>
-        <p>
-          <strong>Annonce officielle (≈300 mots).</strong> Le mercredi 1er octobre 2025, Fally Ipupa a annoncé un concert au <em>Stade de France</em> pour le <strong>samedi 2 mai 2026</strong>. Cette page vitrine rassemble, façon dossier press/web, les éléments clés de l’annonce : affiches, visuels, liens utiles et extraits médias. L’objectif pédagogique de ce livrable est double : 1) montrer une <strong>structuration claire</strong> de l’information (sections, titres, hyperliens, métadonnées) ; 2) intégrer des <strong>formats variés</strong> (images JPEG/PNG, logo SVG, PDF programme, teaser MP4, extrait audio MP3, bloc JSON) dans une présentation web sobre et cohérente.
-          La section « Images » propose huit visuels (affiche officielle, vues de scène, ambiance, détails scéniques, bannière promo). Un clic ouvre une <em>lightbox</em> pour afficher chaque image en grand. La section « Médias » intègre un <strong>teaser vidéo</strong> (MP4) et un <strong>extrait audio</strong> (MP3), ainsi qu’un <strong>programme PDF</strong> synthétique (setlist/infos). Un bloc <strong>JSON</strong> expose des métadonnées minimales (artiste, date, ville, salle, liens). Enfin, la section « Infos & liens » agrège les liens vers les réseaux officiels (artiste et Stade de France), la billetterie, la carte du lieu, et mon <strong>thread X</strong> rédigé à l’occasion du concert du 25 novembre 2023 à Paris La Défense Arena (retour d’expérience personnel).
-          Ce format « page d’annonce » allie sobriété visuelle (fond noir, accents or/bleu nuit, touche rouge inspirée de l’affiche) et efficacité fonctionnelle pour rendre l’information <em>claire, vérifiable et consultable</em>. Il répond aux critères du cours (structure, images, interaction, publication) tout en assumant une touche personnelle mesurée.
-        </p>
-        <div class="cta">
-          <a class="btn btn--gold" href="#gallery">Voir les images</a>
-          <a class="btn" href="#media">Aller aux médias</a>
-        </div>
-      </section>
+     <!-- ===== INTRODUCTION ===== -->
+<section id="intro" class="section">
+  <div class="container">
+    <h1 class="title-animate">Fally Ipupa — Concert au Stade de France</h1>
+    <p class="meta">Saint-Denis · Samedi 2 mai 2026 · Tournée : Concert au Stade de France</p>
+
+    <p>
+      <strong>Annonce officielle.</strong> Le mercredi 1er octobre 2025, Fally Ipupa a annoncé un concert au
+      <em>Stade de France</em> pour le <strong>samedi 2 mai 2026</strong>. Cette page vitrine rassemble, façon dossier de presse pour le web, 
+      les éléments clés de l’annonce : affiches, visuels, liens utiles et extraits médias.
+    </p>
+
+    <p>
+      L’objectif pédagogique de ce livrable est double : d’abord montrer une <strong>structuration claire de l’information</strong>, 
+      puis intégrer des <strong>formats variés</strong> dans une présentation web sobre et cohérente.
+    </p>
+
+    <p>
+      La section « Images » propose huit visuels (affiche officielle, vues de scène, ambiance, détails scéniques, bannière promo).
+      Un clic ouvre une <em>lightbox</em> pour afficher chaque image en grand.  
+      La section « Médias » intègre un <strong>teaser vidéo</strong> et un <strong>extrait audio</strong>.  
+      Un bloc <strong>JSON</strong> expose des métadonnées minimales.  
+      Enfin, la section « Infos & liens » agrège les liens vers les réseaux officiels de l’artiste et du Stade de France, la billetterie, 
+      la carte du lieu, et mon <strong>thread X</strong> rédigé à l’occasion du concert du 25 novembre 2023 à Paris La Défense Arena 
+      (retour d’expérience personnel).
+    </p>
+
+    <p>
+      Ce format « page d’annonce » allie <strong>sobriété visuelle</strong> et <strong>efficacité fonctionnelle</strong> 
+      pour rendre l’information claire, vérifiable et consultable.  
+      Il répond aux critères du cours tout en assumant une touche personnelle mesurée.
+    </p>
+
+    <div class="cta">
+      <a class="btn btn--gold" href="#gallery">Voir les images</a>
+      <a class="btn" href="#media">Aller aux médias</a>
+    </div>
+  </div>
+</section>
       <aside aria-label="Bannière du concert" class="card">
         <figure>
           <img src="assets/fally-banniere-officielle.jpg" alt="Bannière officielle du concert de Fally Ipupa au Stade de France" />
@@ -607,7 +633,25 @@ html, body { overflow-x: hidden; }
     </audio>
     <figcaption class="muted">🎧 Extrait audio — MP3</figcaption>
   </figure>
-
+  
+<h3>Métadonnées (JSON)</h3>
+      <pre class="mono">{
+  "artiste": "Fally Ipupa",
+  "tour": "Concert au Stade de France",
+  "date": "samedi 2 mai 2026",
+  "ville": "Saint-Denis",
+  "salle": "Stade de France",
+  "liens": {
+    "billetterie": "https://www.stadefrance.com/fr/billetterie/fally-ipupa",
+    "officiel": "https://www.stadefrance.com/",
+    "carte": "https://maps.example.com/?q=Stade%20de%20France",
+    "threadX": "https://x.com/muanapopi/status/1717314832343429364"
+  }
+}</pre>
+    </aside>
+  </div>
+</section>
+  
   <!-- Fiches promo -->
   <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
 
