@@ -257,6 +257,31 @@ body::before{
 .menu a:hover::after {
   width: 100%;
 }
+    /* Alignement parfait du logo et du menu dans le header */
+header nav {
+  display: flex;
+  align-items: center; /* aligne tout verticalement */
+  justify-content: space-between;
+  height: 80px; /* hauteur uniforme et harmonieuse */
+  padding: 0 1rem;
+}
+
+.brand-logo {
+  display: block;
+  height: 64px; /* ou la taille que tu préfères (64px dans ton cas) */
+  width: auto;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.menu a {
+  display: inline-block;
+  line-height: 1;
+}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
