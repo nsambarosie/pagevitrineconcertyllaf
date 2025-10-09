@@ -318,7 +318,43 @@ header nav {
     from { opacity: 0; transform: translateY(-8px); }
     to { opacity: 1; transform: translateY(0); }
   }
-}    
+}
+    /* 🎬 Harmonisation section Médias */
+#medias .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+#medias figure.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 0.8rem;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#medias figure.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 12px rgba(166, 10, 10, 0.4);
+}
+
+#medias img,
+#medias video,
+#medias audio {
+  width: 100%;
+  border-radius: 10px;
+}
+
+#medias figcaption {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-top: 0.5rem;
+}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
