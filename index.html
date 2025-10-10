@@ -546,6 +546,33 @@ html, body { overflow-x: hidden; }
   border: none;
   padding-left: 0;
   color: inherit;
+}
+/* Bloc code homogène avec le reste */
+.codeblock{
+  background: rgba(255,255,255,.03);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  overflow: auto;
+}
+.mono{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: .95rem;
+  line-height: 1.55;
+  color: #e5e7eb;           /* blanc doux */
+  white-space: pre-wrap;    /* wrap propre si écran étroit */
+  tab-size: 2;
+}
+
+/* Harmonisation titres de section (si pas déjà fait) */
+.section h2{
+  font-family: var(--title-font, 'Playfair Display', serif);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color:#fff;
+  border-left:3px solid var(--crimson);
+  padding-left:.4rem;
+  margin-bottom:.6rem;
 }    
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
