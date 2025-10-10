@@ -647,18 +647,24 @@ html, body { overflow-x: hidden; }
 
 <section id="medias" class="section container">
   <h2>MÉDIAS</h2>
-  
   <section id="media" class="section">
-  <!-- Teaser vidéo -->
-  <figure class="card">
-    <video controls preload="metadata" style="width:100%;border-radius:12px;">
-           poster="assets/teaser-preview.jpg"
-            class="media-video">
-      <source src="assets/teaser.mp4" type="video/mp4">
-      Ton navigateur ne supporte pas la vidéo. <a href="assets/teaser.mp4" download>Télécharger</a>
-    </video>
-    <figcaption class="muted">🎬 Teaser officiel — MP4</figcaption>
-  </figure>
+
+<!-- Teaser vidéo -->
+<figure class="card">
+  <video
+    controls
+    preload="metadata"
+    playsinline
+    poster="assets/teaser-preview.jpg"
+    class="media-video"
+    style="width:100%;border-radius:12px;"
+  >
+    <source src="assets/teaser.mp4" type="video/mp4">
+    Ton navigateur ne supporte pas la vidéo.
+    <a href="assets/teaser.mp4" download>Télécharger</a>
+  </video>
+  <figcaption class="muted">🎬 Teaser officiel — MP4</figcaption>
+</figure>
 
   <!-- Extrait audio -->
   <figure class="card">
