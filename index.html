@@ -679,6 +679,17 @@ html, body { overflow-x: hidden; }
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
 }
+    /* === Effet fade-in au scroll === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
@@ -702,53 +713,78 @@ html, body { overflow-x: hidden; }
 </header>
 
   <main class="hero">
-    <div class="container grid two">
-     <!-- ===== INTRODUCTION ===== -->
-<section id="about" class="section">
-  <div class="container">
-    <h1 class="title-animate">Fally Ipupa — Concert au Stade de France</h1>
-    <p class="meta">Saint-Denis · Samedi 2 mai 2026 · Tournée : Concert au Stade de France</p>
+  <div class="container grid two">
 
-    <p>
-      <strong>Annonce officielle.</strong> Le mercredi 1er octobre 2025, Fally Ipupa a annoncé un concert au
-      <em>Stade de France</em> pour le <strong>samedi 2 mai 2026</strong>. Cette page vitrine rassemble, façon dossier de presse pour le web, 
-      les éléments clés de l’annonce : affiches, visuels, liens utiles et extraits médias.
-    </p>
+    <!-- ===== INTRODUCTION ===== -->
+<section id="about" class="section fade-in">
+      <div class="container">
+        <h1 class="title-animate">Fally Ipupa au Stade de France — L’annonce officielle</h1>
+        <p class="meta">Saint-Denis · Samedi 2 mai 2026 · Tournée : Concert au Stade de France</p>
 
-    <p>
-      L’objectif pédagogique de ce livrable est double : d’abord montrer une <strong>structuration claire de l’information</strong>, 
-      puis intégrer des <strong>formats variés</strong> dans une présentation web sobre et cohérente.
-    </p>
+        <p>
+          <strong>Annonce officielle.</strong> Le mercredi 1er octobre 2025, Fally Ipupa a annoncé son premier concert au 
+          <em>Stade de France</em>, prévu le <strong>samedi 2 mai 2026</strong>. Cette page vitrine, conçue comme un 
+          <em>mini dossier de presse web</em>, rassemble les éléments clés de l’annonce : affiches, médias, contenus 
+          promotionnels, réactions du public et données structurées.
+        </p>
 
-    <p>
-      La section « Images » propose huit visuels (affiche officielle, vues de scène, ambiance, détails scéniques, bannière promo).
-      Un clic ouvre une <em>lightbox</em> pour afficher chaque image en grand.  
-      La section « Médias » intègre un <strong>teaser vidéo</strong> et un <strong>extrait audio</strong>.  
-      Un bloc <strong>JSON</strong> expose des métadonnées minimales.  
-      Enfin, la section « Infos & liens » agrège les liens vers les réseaux officiels de l’artiste et du Stade de France, la billetterie, 
-      la carte du lieu, et mon <strong>thread X</strong> rédigé à l’occasion du concert du 25 novembre 2023 à Paris La Défense Arena 
-      (retour d’expérience personnel).
-    </p>
+        <p>
+          L’objectif pédagogique de ce livrable est double : d’une part montrer une 
+          <strong>structuration claire et hiérarchisée</strong> de l’information ; d’autre part intégrer des 
+          <strong>formats multimédias variés</strong> dans une présentation web sobre, cohérente et interactive.
+        </p>
 
-    <p>
-      Ce format « page d’annonce » allie <strong>sobriété visuelle</strong> et <strong>efficacité fonctionnelle</strong> 
-      pour rendre l’information claire, vérifiable et consultable.  
-      Il répond aux critères du cours tout en assumant une touche personnelle mesurée.
-    </p>
+        <p>
+          La section <strong>« Médias »</strong> présente un <em>teaser vidéo</em> et un <em>extrait audio</em> pour introduire 
+          l’univers visuel et sonore de l’événement. Les <strong>« Fiches promotionnelles »</strong>, générées par 
+          <em>intelligence artificielle</em>, proposent plusieurs déclinaisons d’affiches ; elles sont 
+          <strong>non officielles</strong> et destinées à illustrer la direction artistique choisie.  
+          La section <strong>« Réactions – Réseaux sociaux »</strong> compile une sélection de <em>tweets</em> et messages 
+          réels publiés après l’annonce, témoignant de l’ampleur de la réception en ligne.  
+          La <strong>« Setlist »</strong>, entièrement <em>fictive</em>, simule la trame musicale probable du concert pour enrichir 
+          la mise en contexte.
+        </p>
 
-    <div class="cta">
-      <a class="btn btn--gold" href="#gallery">Voir les images</a>
-      <a class="btn" href="#media">Aller aux médias</a>
-    </div>
+        <p>
+          Viennent ensuite les <strong>« Images »</strong>, qui regroupent des visuels emblématiques : affiche officielle, 
+          vues scéniques, logos et détails graphiques, accessibles via une <em>lightbox interactive</em>.  
+          La section <strong>« Infos & liens »</strong> agrège les ressources clés : billetterie, réseaux sociaux officiels 
+          et carte du lieu, ainsi qu’un <em>thread X</em> personnel relatant mon expérience du concert de 2023 à 
+          Paris La Défense Arena.  
+          Enfin, les <strong>« Métadonnées (JSON) »</strong> structurent les informations essentielles de l’événement sous 
+          forme de données machine-lisibles.
+        </p>
+
+        <p>
+          Ce format de <strong>page d’annonce multimédia</strong> allie <em>rigueur informationnelle</em> et 
+          <em>direction artistique assumée</em> : un équilibre entre <strong>sobriété visuelle</strong>, 
+          <strong>accessibilité</strong> et <strong>storytelling numérique</strong> conforme aux exigences du cours de 
+          <em>Design de l’information</em>.
+        </p>
+
+        <!-- CTA aligné à droite -->
+        <div class="cta" style="text-align: right;">
+          <a class="btn btn--gold" href="assets/fallyipupa_dossier_presse.pdf" download>Télécharger le PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BANNIÈRE ===== -->
+    <aside aria-label="Bannière du concert" class="card" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+      <figure>
+        <img 
+          src="assets/fally-banniere-officielle.jpg" 
+          alt="Bannière officielle du concert de Fally Ipupa au Stade de France" 
+          style="width:100%; border-radius:12px; opacity:0.85; transition:opacity .3s ease;"
+          onmouseover="this.style.opacity='1'"
+          onmouseout="this.style.opacity='0.85'"
+        />
+      </figure>
+    </aside>
+
   </div>
-</section>
-      <aside aria-label="Bannière du concert" class="card">
-        <figure>
-          <img src="assets/fally-banniere-officielle.jpg" alt="Bannière officielle du concert de Fally Ipupa au Stade de France" />
-        </figure>
-      </aside>
-    </div>
-  </main>
+</main>
+
 
 <!-- Section Médias -->
 <section id="media" class="section">
@@ -1030,6 +1066,26 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cancelAnimationFrame(raf);
   }
+});
+</script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const faders = document.querySelectorAll('.fade-in');
+  const options = {
+    threshold: 0.2
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, options);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
 });
 </script>
 </body>
