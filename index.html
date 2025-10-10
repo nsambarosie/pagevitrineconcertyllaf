@@ -574,6 +574,55 @@ html, body { overflow-x: hidden; }
   padding-left:.4rem;
   margin-bottom:.6rem;
 }
+    /* === Fiches promotionnelles : effet verre fumé harmonisé === */
+#promo .card {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  overflow: hidden;
+  backdrop-filter: saturate(120%) blur(6px);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+/* léger survol interactif */
+#promo .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.45);
+}
+
+/* voile pour uniformiser le fond */
+#promo .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.10));
+  pointer-events: none;
+}
+
+/* images internes */
+#promo .card img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: .5rem;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,.25));
+}
+
+/* légendes */
+#promo .card figcaption {
+  text-align: center;
+  font-size: .9rem;
+  color: var(--muted);
+}
+<section id="promo" class="section">
+  <div class="container">
+    <h2>FICHES PROMOTIONNELLES</h2>
+    <!-- tes figures ici -->
+  </div>
+</section>
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
