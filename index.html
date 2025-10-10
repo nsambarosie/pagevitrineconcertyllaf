@@ -617,12 +617,29 @@ html, body { overflow-x: hidden; }
   font-size: .9rem;
   color: var(--muted);
 }
-<section id="promo" class="section">
-  <div class="container">
-    <h2>FICHES PROMOTIONNELLES</h2>
-    <!-- tes figures ici -->
-  </div>
-</section>
+/* Verre fumé / transparence pour MÉDIAS (robuste) */
+#media .card, #medias .card{
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  overflow: hidden;
+  backdrop-filter: saturate(120%) blur(6px);
+}
+#media .card::before, #medias .card::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.10));
+  pointer-events:none;
+}
+#media .card video, #media .card audio,
+#medias .card video, #medias .card audio{
+  display:block; width:100%; border-radius:12px;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,.25));
+  background:#000;
+}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
