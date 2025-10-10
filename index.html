@@ -792,8 +792,14 @@ html, body { overflow-x: hidden; }
   </div>
 </section>
 
-<h2>MÉTADONNÉES (JSON)</h2>
-      <pre class="mono">{
+<!-- MÉTADONNÉES -->
+<section id="metadata" class="section">
+  <div class="container">
+    <h2>MÉTADONNÉES (JSON)</h2>
+
+    <div class="card codeblock">
+      <pre class="mono" aria-label="Bloc JSON">
+{
   "artiste": "Fally Ipupa",
   "tour": "Concert au Stade de France",
   "date": "samedi 2 mai 2026",
@@ -805,8 +811,12 @@ html, body { overflow-x: hidden; }
     "carte": "https://maps.example.com/?q=Stade%20de%20France",
     "threadX": "https://x.com/muanapopi/status/1717314832343429364"
   }
-}</pre>  
-  
+}
+      </pre>
+    </div>
+  </div>
+</section>
+
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Aperçu de l’image">
     <button class="close" aria-label="Fermer" onclick="hideLightbox()">Fermer ×</button>
     <img src="" alt="Aperçu" id="lightbox-img" />
