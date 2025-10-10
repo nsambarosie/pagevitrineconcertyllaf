@@ -640,6 +640,45 @@ html, body { overflow-x: hidden; }
   filter: drop-shadow(0 4px 14px rgba(0,0,0,.25));
   background:#000;
 }
+    /* === GALERIE : effet verre fumé + cohérence cartes === */
+#gallery .card{
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  overflow: hidden;
+  backdrop-filter: saturate(120%) blur(6px);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+#gallery .card::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.10));
+  pointer-events:none;
+}
+#gallery .card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.45);
+  border-color: rgba(166,10,10,.45); /* touche crimson */
+}
+
+/* Images internes harmonisées */
+#gallery .thumb{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius: 10px;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,.25));
+}
+
+/* (optionnel) grille sans inline styles */
+#gallery .gallery{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
