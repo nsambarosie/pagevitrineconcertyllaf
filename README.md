@@ -1,7 +1,7 @@
 Adresse URL de mon espace :  
 https://github.com/nsambarosie/designinfovitrinefallyipupa2026
 
-Lien vers mon site live :  
+Lien vers mon site live (livrable) :  
 https://nsambarosie.github.io/designinfovitrinefallyipupa2026/
 
 ---
