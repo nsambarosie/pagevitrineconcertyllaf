@@ -694,6 +694,37 @@ html, body { overflow-x: hidden; }
   text-align: justify;
   text-justify: inter-word;
 }
+/* Taille/var header */
+:root{ --headerH: 64px; }
+
+/* Barre fixe full-width, verre fumé */
+header{
+  position: fixed; top:0; left:0; right:0; z-index: 1000;
+  background: rgba(10,10,10,.88);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-bottom: 1px solid #333;
+}
+
+/* Espace le contenu sous la barre (évite que le header recouvre) */
+body{ padding-top: var(--headerH); }
+
+/* Nav layout */
+nav{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; min-height: var(--headerH); }
+.brand{ white-space:nowrap; }
+
+/* Liens tjrs visibles ; sur petit écran, on autorise le scroll horizontal discret */
+.menu{ display:flex; gap:.8rem; flex-wrap:wrap; }
+@media (max-width: 860px){
+  .menu{
+    flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width:none;
+  }
+  .menu::-webkit-scrollbar{ display:none; }
+  .menu a{ white-space:nowrap; font-size:.95rem; padding:.35rem .6rem; }
+}
+
+/* Offset propre quand on clique une ancre avec header fixe */
+.section{ scroll-margin-top: calc(var(--headerH) + 12px); }    
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
