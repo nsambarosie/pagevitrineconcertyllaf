@@ -694,25 +694,78 @@ html, body { overflow-x: hidden; }
   text-align: justify;
   text-justify: inter-word;
 }
+    /* === Burger (mobile) === */
+.burger{
+  display:none;
+  background:transparent; border:1px solid rgba(255,255,255,.25);
+  padding:.45rem .6rem; border-radius:10px; cursor:pointer;
+}
+.burger:focus{ outline:2px solid var(--crimson); outline-offset:2px; }
+.burger-line{
+  display:block; width:22px; height:2px; background:#fff; margin:4px 0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* Panel menu mobile (caché par défaut) */
+@media (max-width: 860px){
+  .burger{ display:inline-flex; align-items:center; justify-content:center; }
+  .menu{
+    position:absolute; top:100%; right:1.2rem; left:1.2rem;
+    display:flex; flex-direction:column; gap:.6rem;
+    background: rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:14px; padding:.8rem;
+    backdrop-filter: saturate(120%) blur(6px);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    transform-origin: top right;
+    transform: scaleY(0.98);
+    opacity:0; pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  /* liens dans le panel */
+  .menu a{
+    display:block; padding:.6rem .7rem; border:1px solid transparent; border-radius:10px;
+  }
+  .menu a:hover{ border-color: rgba(166,10,10,.45); }
+
+  /* état ouvert */
+  .menu.open{
+    opacity:1; pointer-events:auto; transform: scaleY(1);
+  }
+
+  /* Sur mobile, la barre nav espace les éléments */
+  nav{ position:relative; }
+}
+
+/* Animation du burger en croix quand ouvert */
+.menu.open + .whatever{} /* dummy to keep structure happy */
+.burger.active .burger-line:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+.burger.active .burger-line:nth-child(2){ opacity:0; }
+.burger.active .burger-line:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
   <div class="container">
-    <nav aria-label="Navigation principale">
-      <a class="brand" href="#top" aria-label="Accueil – Fally Ipupa">
-        <img src="assets/logo_horizontal.png"
-             alt="FALLY IPUPA — STADE DE FRANCE | 02.05.26"
-             class="brand-logo">
-      </a>
-      <div class="menu">
-        <a href="#about">À propos</a>
-        <a href="#gallery">Images</a>
-        <a href="#media">Médias</a>
-        <a href="#infos">Infos</a>
-      </div>
-    </nav>
+   <nav aria-label="Navigation principale">
+  <div class="brand">Fally Ipupa — Concert au Stade de France</div>
+
+  <!-- Bouton burger (mobile) -->
+  <button class="burger" aria-label="Ouvrir le menu" aria-controls="nav-menu" aria-expanded="false">
+    <span class="burger-line" aria-hidden="true"></span>
+    <span class="burger-line" aria-hidden="true"></span>
+    <span class="burger-line" aria-hidden="true"></span>
+  </button>
+
+  <!-- Liens -->
+  <div class="menu" id="nav-menu">
+    <a href="#about">À propos</a>
+    <a href="#gallery">Images</a>
+    <a href="#media">Médias</a>
+    <a href="#infos">Infos</a>
+  </div>
+</nav>
   </div>
 </header>
 
@@ -1090,6 +1143,46 @@ document.addEventListener("DOMContentLoaded", () => {
   faders.forEach(fader => {
     appearOnScroll.observe(fader);
   });
+});
+</script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.burger');
+  const menu = document.getElementById('nav-menu');
+  if(!btn || !menu) return;
+
+  const open = () => {
+    menu.classList.add('open');
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden'; // lock scroll léger
+  };
+  const close = () => {
+    menu.classList.remove('open');
+    btn.classList.remove('active');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+
+  btn.addEventListener('click', () => {
+    const isOpen = menu.classList.contains('open');
+    isOpen ? close() : open();
+  });
+
+  // Fermer au clic lien
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', close);
+  });
+
+  // Fermer à ESC
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') close();
+  });
+
+  // Si on repasse en desktop, on nettoie
+  const mq = window.matchMedia('(min-width: 861px)');
+  const handle = () => { if(mq.matches) close(); };
+  mq.addEventListener ? mq.addEventListener('change', handle) : mq.addListener(handle);
 });
 </script>
 </body>
