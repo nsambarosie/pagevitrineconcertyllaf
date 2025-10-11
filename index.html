@@ -723,7 +723,43 @@ nav{ display:flex; align-items:center; justify-content:space-between; gap:.75rem
 }
 
 /* Offset propre quand on clique une ancre avec header fixe */
-.section{ scroll-margin-top: calc(var(--headerH) + 12px); }    
+.section{ scroll-margin-top: calc(var(--headerH) + 12px); }
+/* ——— Lightbox au-dessus du header fixe + bouton visible ——— */
+:root { --headerH: 64px; } /* ajuste si ta barre est plus haute */
+
+/* La lightbox doit dépasser le header (header = z-index:1000 chez toi) */
+.lightbox{
+  position: fixed; inset: 0;
+  z-index: 2000;                  /* > header */
+  background: rgba(0,0,0,.88);
+  display: none;                  /* ou ta logique existante */
+  align-items: center; justify-content: center;
+  padding-top: var(--headerH);    /* réserve l’espace du header */
+}
+
+/* si tu utilises [aria-hidden] pour l’afficher */
+.lightbox[aria-hidden="false"] { display: flex; }
+
+.lightbox .close{
+  position: fixed;                /* pas “absolute”, sinon ça file sous le header */
+  top: calc(var(--headerH) + 10px);
+  right: 16px;
+  z-index: 2100;
+  background: rgba(0,0,0,.6);
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 10px;
+  padding: .4rem .6rem;
+  cursor: pointer;
+}
+
+/* L’image ne doit pas se cacher sous la barre */
+#lightbox-img{
+  max-width: min(92vw, 1400px);
+  max-height: calc(92vh - var(--headerH));
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.5);
+}    
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
 </head>
